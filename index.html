@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Музей буквы "E" | Интерактивная выставка</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Playfair+Display:wght@700&display=swap">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+
+<body>
+    <div class="museum-container">
+        <!-- Анимированное меню -->
+        <nav class="museum-nav">
+            <div class="nav-logo">E</div>
+            <ul class="nav-links">
+                <li><a href="#main-hall" class="active">Главный зал</a></li>
+                <li><a href="#history">История</a></li>
+                <li><a href="#typography">Типографика</a></li>
+                <li><a href="#languages">Языки</a></li>
+                <li><a href="#animation">Анимация</a></li>
+            </ul>
+            <button class="nav-toggle">
+                <i class="fas fa-bars"></i>
+            </button>
+        </nav>
+
+        <!-- Главный зал -->
+        <section id="main-hall" class="main-hall">
+            <div class="hall-content">
+                <h1 class="hall-title">Интерактивный музей <span>буквы "E"</span></h1>
+                <p class="hall-subtitle">Исследуйте эволюцию, формы и значение пятой буквы латинского алфавита</p>
+
+                <div class="e-particles" id="eParticles">
+                    <!-- Частицы будут добавлены через JS -->
+                </div>
+
+                <div class="giant-e-container">
+                    <div class="giant-e" id="giantE">
+                        <div class="e-3d">E</div>
+                        <div class="e-reflection"></div>
+                    </div>
+                </div>
+
+                <div class="scroll-down">
+                    <span>Листайте вниз</span>
+                    <div class="arrow">
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Раздел истории -->
+        <section id="history" class="section history-section">
+            <div class="section-header">
+                <h2>История буквы <span class="e-highlight">E</span></h2>
+                <div class="section-divider"></div>
+            </div>
+
+            <div class="history-timeline">
+                <div class="timeline-item">
+                    <div class="timeline-date">~800 до н.э.</div>
+                    <div class="timeline-content">
+                        <h3>Финикийское происхождение</h3>
+                        <p>Буква E происходит от финикийской буквы "хе" (𐤄), означавшей "окно"</p>
+                        <div class="timeline-letter">𐤄</div>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-date">~700 до н.э.</div>
+                    <div class="timeline-content">
+                        <h3>Греческий эпсилон</h3>
+                        <p>Греки адаптировали букву как Ε (эпсилон), означавшую короткий звук [e]</p>
+                        <div class="timeline-letter">Ε</div>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-date">~100 до н.э.</div>
+                    <div class="timeline-content">
+                        <h3>Латинская E</h3>
+                        <p>Римляне упростили форму до современного вида, сохранив звуковое значение</p>
+                        <div class="timeline-letter">E</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Раздел типографики -->
+        <section id="typography" class="section typography-section">
+            <div class="section-header">
+                <h2>Типографика <span class="e-highlight">E</span></h2>
+                <div class="section-divider"></div>
+            </div>
+
+            <div class="typography-gallery">
+                <div class="font-card serif">
+                    <div class="font-sample" style="font-family: 'Times New Roman'">E</div>
+                    <h3>Антиква</h3>
+                    <p>Times New Roman, Garamond, Georgia</p>
+                </div>
+
+                <div class="font-card sans-serif">
+                    <div class="font-sample" style="font-family: 'Helvetica'">E</div>
+                    <h3>Гротеск</h3>
+                    <p>Helvetica, Arial, Futura</p>
+                </div>
+
+                <div class="font-card script">
+                    <div class="font-sample" style="font-family: 'Brush Script MT'">E</div>
+                    <h3>Рукописная</h3>
+                    <p>Brush Script, Comic Sans</p>
+                </div>
+
+                <div class="font-card display">
+                    <div class="font-sample" style="font-family: 'Impact'">E</div>
+                    <h3>Акцидентная</h3>
+                    <p>Impact, Cooper Black</p>
+                </div>
+            </div>
+
+            <div class="typography-fun">
+                <h3>Создайте свою E:</h3>
+                <div class="typography-controls">
+                    <select id="fontFamily">
+                        <option value="Arial">Arial</option>
+                        <option value="Times New Roman">Times New Roman</option>
+                        <option value="Courier New">Courier New</option>
+                        <option value="Georgia">Georgia</option>
+                        <option value="Verdana">Verdana</option>
+                        <option value="Brush Script MT">Brush Script</option>
+                    </select>
+
+                    <input type="range" id="fontWeight" min="100" max="900" step="100" value="400">
+                    <span id="weightValue">400</span>
+
+                    <input type="color" id="fontColor" value="#000000">
+                </div>
+
+                <div class="custom-typography-e" id="customTypoE">E</div>
+            </div>
+        </section>
+
+        <!-- Раздел языков -->
+        <section id="languages" class="section languages-section">
+            <div class="section-header">
+                <h2>Буква <span class="e-highlight">E</span> в языках мира</h2>
+                <div class="section-divider"></div>
+            </div>
+
+            <div class="language-map">
+                <div class="language-item">
+                    <div class="language-flag english"></div>
+                    <h3>Английский</h3>
+                    <p>Самая часто используемая буква</p>
+                    <div class="language-letter">E</div>
+                </div>
+
+                <div class="language-item">
+                    <div class="language-flag french"></div>
+                    <h3>Французский</h3>
+                    <p>Диакритические формы: É, È, Ê, Ë</p>
+                    <div class="language-letter">É</div>
+                </div>
+
+                <div class="language-item">
+                    <div class="language-flag german"></div>
+                    <h3>Немецкий</h3>
+                    <p>Умлаут: Ë</p>
+                    <div class="language-letter">Ë</div>
+                </div>
+
+                <div class="language-item">
+                    <div class="language-flag spanish"></div>
+                    <h3>Испанский</h3>
+                    <p>Произносится как [e]</p>
+                    <div class="language-letter">E</div>
+                </div>
+            </div>
+
+            <div class="language-stats">
+                <h3>Статистика использования</h3>
+                <div class="stats-bar">
+                    <div class="stat-item" style="width: 12.7%">
+                        <span>Английский</span>
+                        <span>12.7%</span>
+                    </div>
+                    <div class="stat-item" style="width: 15.9%">
+                        <span>Французский</span>
+                        <span>15.9%</span>
+                    </div>
+                    <div class="stat-item" style="width: 16.4%">
+                        <span>Немецкий</span>
+                        <span>16.4%</span>
+                    </div>
+                    <div class="stat-item" style="width: 13.7%">
+                        <span>Испанский</span>
+                        <span>13.7%</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Раздел анимации -->
+        <section id="animation" class="section animation-section">
+            <div class="section-header">
+                <h2>Анимация <span class="e-highlight">E</span></h2>
+                <div class="section-divider"></div>
+            </div>
+
+            <div class="animation-controls">
+                <div class="control-panel">
+                    <h3>Контроллер анимации</h3>
+
+                    <div class="control-group">
+                        <label for="animType">Тип анимации:</label>
+                        <select id="animType">
+                            <option value="pulse">Пульсация</option>
+                            <option value="rotate">Вращение</option>
+                            <option value="shake">Дрожание</option>
+                            <option value="bounce">Отскок</option>
+                            <option value="rainbow">Радуга</option>
+                            <option value="morph">Морфинг</option>
+                            <option value="particles">Частицы</option>
+                        </select>
+                    </div>
+
+                    <div class="control-group">
+                        <label for="animSpeed">Скорость:</label>
+                        <input type="range" id="animSpeed" min="1" max="10" value="5">
+                    </div>
+
+                    <div class="control-group">
+                        <label for="animSize">Размер:</label>
+                        <input type="range" id="animSize" min="50" max="200" value="100">
+                    </div>
+
+                    <div class="control-group color-picker">
+                        <label for="animColor">Цвет:</label>
+                        <input type="color" id="animColor" value="#e74c3c">
+                    </div>
+
+                    <div class="control-buttons">
+                        <button id="startAnim">Старт</button>
+                        <button id="stopAnim">Стоп</button>
+                        <button id="randomAnim">Случайно</button>
+                    </div>
+                </div>
+
+                <div class="animation-preview">
+                    <div class="animated-e" id="animatedE">E</div>
+                </div>
+            </div>
+
+            <div class="animation-gallery">
+                <h3>Галерея пресетов</h3>
+                <div class="preset-grid">
+                    <div class="preset" data-anim="pulse" data-speed="3" data-color="#e74c3c">
+                        <div class="preset-e">E</div>
+                        <span>Классика</span>
+                    </div>
+                    <div class="preset" data-anim="rotate" data-speed="5" data-color="#3498db">
+                        <div class="preset-e">E</div>
+                        <span>Вращение</span>
+                    </div>
+                    <div class="preset" data-anim="shake" data-speed="8" data-color="#2ecc71">
+                        <div class="preset-e">E</div>
+                        <span>Дрожь</span>
+                    </div>
+                    <div class="preset" data-anim="bounce" data-speed="4" data-color="#f1c40f">
+                        <div class="preset-e">E</div>
+                        <span>Прыжки</span>
+                    </div>
+                    <div class="preset" data-anim="rainbow" data-speed="7" data-color="#9b59b6">
+                        <div class="preset-e">E</div>
+                        <span>Радуга</span>
+                    </div>
+                    <div class="preset" data-anim="morph" data-speed="6" data-color="#e67e22">
+                        <div class="preset-e">E</div>
+                        <span>Морфинг</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <footer class="museum-footer">
+            <b><i>
+            <p>© 2025 Интерактивный музей буквы "E" ("E" interactive museum)</p>
+            <p>Создано с ♥ для любителей буковок</p>
+            </i></b>
+            <div class="footer-e">E</div>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
